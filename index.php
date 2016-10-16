@@ -45,14 +45,14 @@ include_once 'common.php';
 	     <ul class="megamenu skyblue">
 			<li class="active grid"><a href="index.php?lang=<?php echo $lang['LANG']; ?>">Home</a>
 			</li>
-			<li><a class="color4" href="#">Products</a>
+			<li><a class="color4" href="men.php">Products</a>
 				<div class="megapanel">
 					<div class="row">
 						<div class="col1">
 							<div class="h_nav">
 								<h4>Men</h4>
 								<ul>
-									<li><a href="men.html">Men Watches</a></li>
+									<li><a href="men.php">Men Watches</a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -60,7 +60,7 @@ include_once 'common.php';
 							<div class="h_nav">
 								<h4>Women</h4>
 								<ul>
-									<li><a href="men.html">Women Watches</a></li>
+									<li><a href="men.php">Women Watches</a></li>
 								</ul>	
 							</div>							
 						</div>
