@@ -8,9 +8,7 @@ include_once 'common.php';
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
-
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-
 		<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="text/javascript" src="js/megamenu.js"></script>
 		<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
@@ -27,7 +25,7 @@ include_once 'common.php';
 			 <ul class="header_user_info">
 			  <a class="login" href="login.php">
 				<i class="user"> </i> 
-				<li class="user_desc">My Account</li>
+				<li class="user_desc"><?php echo $lang['ACCOUNT']; ?></li>
 			  </a>
 		     </ul>
 			  <div id="languages">
@@ -43,37 +41,37 @@ include_once 'common.php';
 	   </div>
    	   <div class="menu">
 	     <ul class="megamenu skyblue">
-			<li class="active grid"><a href="index.php?lang=<?php echo $lang['LANG']; ?>">Home</a>
+			<li class="active grid" ><a href="index.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_HOME']; ?></a>
 			</li>
-			<li><a class="color4" href="men.php">Products</a>
+			<li><a class="color4" href="men.php"><?php echo $lang['MENU_PRODUCTS']; ?></a>
 				<div class="megapanel">
 					<div class="row">
 						<div class="col1">
 							<div class="h_nav">
-								<h4>Men</h4>
+								<h4><?php echo $lang['MEN']; ?></h4>
 								<ul>
-									<li><a href="men.php">Men Watches</a></li>
+									<li><a href="men.php"><?php echo $lang['MEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>
 						<div class="col1">
 							<div class="h_nav">
-								<h4>Women</h4>
+								<h4><?php echo $lang['WOMEN']; ?></h4>
 								<ul>
-									<li><a href="men.php">Women Watches</a></li>
+									<li><a href="men.php"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>
 						<div class="col2">
 							<div class="h_nav">
-								<h4>Trends</h4>
+								<h4><?php echo $lang['TRENDS']; ?></h4>
 								<ul>
 										<div class="p_left">
 										  <img src="images/p2.jpg" class="img-responsive" alt=""/>
 										</div>
 										<div class="p_right">
 											<h4><a href="#">MECHANICAL FOSSIL</a></h4>
-											<span class="item-cat"><small><a href="#">Price</a></small></span>
+											<span class="item-cat"><small><a href="#"><?php echo $lang['PRICE']; ?></a></small></span>
 											<span class="price">29.99 $</span>
 										</div>
 										<div class="clearfix"> </div>
@@ -84,8 +82,8 @@ include_once 'common.php';
 					  </div>
 					</div>
 				</li>				
-				<li><a class="color10" href="contact.php?lang=<?php echo $lang['LANG']; ?>">Contact Us</a></li>
-				<li><a class="color3" href="index.html?lang=<?php echo $lang['LANG']; ?>">Log In</a></li>
+				<li><a class="color10" href="contact.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_CONTACT_US']; ?></a></li>
+				<li><a class="color3" href="index.html?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGIN']; ?></a></li>
 				<div class="clearfix"> </div>
 			</ul>
 			</div>
@@ -101,9 +99,9 @@ include_once 'common.php';
                 <div class="bannerBox">
                    <img src="images/w1.jpg" class="item-img" title="" alt="" width="100%" height="100%">
                    <div class="item-html">
-                      <h3>Men's<span>Watches</span></h3>
-                      <p>Best watches on the market</p>
-                      <button>Shop now!</button>
+                      <h3><?php echo $lang['MEN']; ?></h3>
+                      <p><?php echo $lang['DESCRIPTION']; ?></p>
+                      <button><?php echo $lang['SHOP']; ?></button>
                    </div>
                 </div>
               </a>
@@ -113,9 +111,9 @@ include_once 'common.php';
                 <div class="bannerBox">
                    <img src="images/w3.jpg" class="item-img" title="" alt="" width="100%" height="100%">
                    <div class="item-html">
-                      <h3>Men's<span>Watches</span></h3>
-                      <p>Best watches on the market</p>
-                      <button>Shop now!</button>
+                      <h3><?php echo $lang['MEN']; ?></h3>
+                      <p><?php echo $lang['DESCRIPTION']; ?></p>
+                      <button><?php echo $lang['SHOP']; ?></button>
                    </div>
                 </div>
               </a>
@@ -125,9 +123,9 @@ include_once 'common.php';
                 <div class="bannerBox">
                    <img src="images/w2.jpg" class="item-img" title="" alt="" width="100%" height="100%">
                    <div class="item-html">
-                      <h3>Women's<span>Watches</span></h3>
-                      <p>Best watches on the market</p>
-                      <button>Shop now!</button>
+                      <h3><?php echo $lang['WOMEN']; ?></h3>
+                      <p><?php echo $lang['DESCRIPTION']; ?></p>
+                      <button><?php echo $lang['SHOP']; ?></button>
                    </div>
                 </div>
               </a>
@@ -137,8 +135,8 @@ include_once 'common.php';
     </div>
     <div class="middle_content">
     	<div class="container">
-    		<h2>Welcome</h2>
-    		<p>Watches has been in the wholesale and retail trade of luxury goods such as watches. Watches has been providing its customers a combination of price, selection and service for over 20 years. Our goal has been to earn the trust and satisfaction of the customer. We offer competitive pricing, but we also knew low prices alone could not make our business superior. We are determined to combine honest and helpful dealings with outstanding service before, during, and after the sale.</p>
+    		<h2><?php echo $lang['WELCOME']; ?></h2>
+    		<p><?php echo $lang['DESC']; ?></p>
     	</div>
     </div>
    	<div class="content_middle_bottom">
