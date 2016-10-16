@@ -27,7 +27,7 @@ include_once 'common.php';
 			 <ul class="header_user_info">
 			  <a class="login" href="login.php">
 				<i class="user"> </i> 
-				<li class="user_desc">My Account</li>
+				<li class="user_desc"><?php echo $lang['ACCOUNT']; ?></li>
 			  </a>
 		     </ul>
 			  <div id="languages">
@@ -43,37 +43,37 @@ include_once 'common.php';
 	   </div>
    	   <div class="menu">
 	     <ul class="megamenu skyblue">
-			<li><a href="index.php?lang=<?php echo $lang['LANG']; ?>">Home</a>
+			<li><a href="index.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_HOME']; ?></a>
 			</li>
-			<li><a class="color4" href="#">Products</a>
+			<li><a class="color4" href="#"><?php echo $lang['MENU_PRODUCTS']; ?></a>
 				<div class="megapanel">
 					<div class="row">
 						<div class="col1">
 							<div class="h_nav">
-								<h4>Men</h4>
+								<h4><?php echo $lang['MEN']; ?></h4>
 								<ul>
-									<li><a href="men.html">Men Watches</a></li>
+									<li><a href="men.html"><?php echo $lang['MEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>
 						<div class="col1">
 							<div class="h_nav">
-								<h4>Women</h4>
+								<h4><?php echo $lang['WOMEN']; ?></h4>
 								<ul>
-									<li><a href="men.html">Women Watches</a></li>
+									<li><a href="men.html"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>
 						<div class="col2">
 							<div class="h_nav">
-								<h4>Trends</h4>
+								<h4><?php echo $lang['TRENDS']; ?></h4>
 								<ul>
 										<div class="p_left">
 										  <img src="images/p2.jpg" class="img-responsive" alt=""/>
 										</div>
 										<div class="p_right">
 											<h4><a href="#">MECHANICAL FOSSIL</a></h4>
-											<span class="item-cat"><small><a href="#">Price</a></small></span>
+											<span class="item-cat"><small><a href="#"><?php echo $lang['PRICE']; ?></a></small></span>
 											<span class="price">29.99 $</span>
 										</div>
 										<div class="clearfix"> </div>
@@ -84,8 +84,8 @@ include_once 'common.php';
 					  </div>
 					</div>
 				</li>				
-				<li class="active grid" ><a class="color10" href="contact.php?lang=<?php echo $lang['LANG']; ?>">Contact Us</a></li>
-				<li><a class="color3" href="index.html?lang=<?php echo $lang['LANG']; ?>">Log In</a></li>
+				<li class="active grid" ><a class="color10" href="contact.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_CONTACT_US']; ?></a></li>
+				<li><a class="color3" href="index.html?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGIN']; ?></a></li>
 				<div class="clearfix"> </div>
 			</ul>
 			</div>
@@ -96,31 +96,31 @@ include_once 'common.php';
    <div class="men">
    	 <div class="container">
    	  <div class="grid_1">
-	   	  <h1>Contact Info</h1>
-	   	  <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum</p>
+	   	  <h1><?php echo $lang['CONTACT_INFO']; ?></h1>
+	   	  <p><?php echo $lang['CONTACT_DESC']; ?></p>
       </div>
       <div class="grid_4">
       <div class="grid_2 preffix_1">
 	      <ul class="iphone">
 	      	<i class="phone"> </i>
-	      	<li class="phone_desc">Phone : +1 800 245 2365 </li>
+	      	<li class="phone_desc">Phone : 076X XXX XXX </li>
 	      	<div class="clearfix"> </div>
 	      </ul>
 	      <ul class="iphone">
 	      	<i class="flag"> </i>
-	        <li class="phone_desc">Website : <a href="mailto:mail@demolink.org">www.demolink.com</a></li>
+	        <li class="phone_desc">Website : <a href="mailto:mail@site.com">site.com</a></li>
 	      	<div class="clearfix"> </div>
 	      </ul>
 	  </div>
 	  <div class="grid_3">
 	      <ul class="iphone">
 	      	<i class="msg"> </i>
-	        <li class="phone_desc">Email : <a href="mailto:mail@demolink.org">mail(at)watches.com</a> </li>
+	        <li class="phone_desc">Email : <a href="mailto:mail@site.com">mail(at)watches.com</a> </li>
 	      	<div class="clearfix"> </div>
 	      </ul>
 	      <ul class="iphone">
 	      	<i class="home"> </i>
-	        <li class="phone_desc">Address : vel illum dolore eu feugiat nulla </li>
+	        <li class="phone_desc">Address : Address</li>
 	      	<div class="clearfix"> </div>
 	      </ul>
 	  </div>
