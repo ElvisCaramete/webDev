@@ -58,7 +58,7 @@ include_once 'common.php';
 							<div class="h_nav">
 								<h4><?php echo $lang['WOMEN']; ?></h4>
 								<ul>
-									<li><a href="men.html"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
+									<li><a href="women.html"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -83,7 +83,7 @@ include_once 'common.php';
 					</div>
 				</li>				
 				<li><a class="color10" href="contact.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_CONTACT_US']; ?></a></li>
-				<li><a class="color3" href="index.html?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGIN']; ?></a></li>
+				<li><a class="color3" href="login.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGIN']; ?></a></li>
 				<div class="clearfix"> </div>
 			</ul>
 			</div>
