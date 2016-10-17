@@ -52,7 +52,7 @@ include_once 'common.php';
 							<div class="h_nav">
 								<h4><?php echo $lang['MEN']; ?></h4>
 								<ul>
-									<li><a href="men.html"><?php echo $lang['MEN_WATCHES']; ?></a></li>
+									<li><a href="men.php"><?php echo $lang['MEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -60,7 +60,7 @@ include_once 'common.php';
 							<div class="h_nav">
 								<h4><?php echo $lang['WOMEN']; ?></h4>
 								<ul>
-									<li><a href="women.html"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
+									<li><a href="men.php"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>

@@ -43,7 +43,7 @@ include_once 'common.php';
 	     <ul class="megamenu skyblue">
 			<li class="active grid" ><a href="index.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_HOME']; ?></a>
 			</li>
-			<li><a class="color4" href="men.php"><?php echo $lang['MENU_PRODUCTS']; ?></a>
+			<li><a class="color4" href="#"><?php echo $lang['MENU_PRODUCTS']; ?></a>
 				<div class="megapanel">
 					<div class="row">
 						<div class="col1">
@@ -58,7 +58,7 @@ include_once 'common.php';
 							<div class="h_nav">
 								<h4><?php echo $lang['WOMEN']; ?></h4>
 								<ul>
-									<li><a href="women.php"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
+									<li><a href="men.php"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>
