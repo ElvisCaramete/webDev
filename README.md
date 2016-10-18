@@ -1,4 +1,5 @@
-Project Description:  
+#Project Description:  
+  
 	The website will mainly consist of an online web shop that deals with selling luxury watches.  
 	  
 # Project requirements:  
