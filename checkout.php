@@ -1,6 +1,46 @@
 <?php
 include_once 'common.php';
 ?>
+<?php
+require_once("dbcontroller.php");
+$db_handle = new DBController();
+if(!empty($_GET["action"])) {
+switch($_GET["action"]) {
+	case "add":
+		if(!empty($_POST["quantity"])) {
+			$productByCode = $db_handle->runQuery("SELECT * FROM tblproduct WHERE code='" . $_GET["code"] . "'");
+			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["name"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["price"]));
+			
+			if(!empty($_SESSION["cart_item"])) {
+				if(in_array($productByCode[0]["code"],$_SESSION["cart_item"])) {
+					foreach($_SESSION["cart_item"] as $k => $v) {
+							if($productByCode[0]["code"] == $k)
+								$_SESSION["cart_item"][$k]["quantity"] = $_POST["quantity"];
+					}
+				} else {
+					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+				}
+			} else {
+				$_SESSION["cart_item"] = $itemArray;
+			}
+		}
+	break;
+	case "remove":
+		if(!empty($_SESSION["cart_item"])) {
+			foreach($_SESSION["cart_item"] as $k => $v) {
+					if($_GET["code"] == $k)
+						unset($_SESSION["cart_item"][$k]);				
+					if(empty($_SESSION["cart_item"]))
+						unset($_SESSION["cart_item"]);
+			}
+		}
+	break;
+	case "empty":
+		unset($_SESSION["cart_item"]);
+	break;	
+}
+}
+?>
 <html>
     <head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +63,7 @@ include_once 'common.php';
    	  	<div class="header_top">
 			<div class="header_top_left">
 	  	      <div class="box_11"><a href="checkout.php">
-		      			  <?php
+			  <?php
 if(isset($_SESSION["cart_item"])){
     $item_total = 0;
 	$items = 0;
@@ -41,7 +81,7 @@ if(isset($_SESSION["cart_item"])){
 }
 ?>
 		      </a></div>
-	          <p class="empty"><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+	          <p class="empty"><a href="checkout.php?action=empty" class="simpleCart_empty">Empty Cart</a></p>
 	          <div class="clearfix"> </div>
 	       </div>
            <div class="header_top_right">
@@ -89,7 +129,7 @@ else
 	   </div>
    	   <div class="menu">
 	     <ul class="megamenu skyblue">
-			<li><a href="index.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_HOME']; ?></a>
+			<li class="active grid" ><a href="index.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_HOME']; ?></a>
 			</li>
 			<li><a class="color4" href="#"><?php echo $lang['MENU_PRODUCTS']; ?></a>
 				<div class="megapanel">
@@ -120,7 +160,7 @@ else
 										<div class="p_right">
 											<h4><a href="#">MECHANICAL FOSSIL</a></h4>
 											<span class="item-cat"><small><a href="#"><?php echo $lang['PRICE']; ?></a></small></span>
-											<span class="price">29.99 $</span>
+											<span class="price">29.99 &euro;</span>
 										</div>
 										<div class="clearfix"> </div>
 									</li>
@@ -131,7 +171,19 @@ else
 					</div>
 				</li>				
 				<li><a class="color10" href="contact.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_CONTACT_US']; ?></a></li>
-				<li class="active grid" ><a class="color3" href="login.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGIN']; ?></a></li>
+<?php
+if(isset($_SESSION["user"])){
+?>	
+<li><a class="color3" href="logout.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGOUT']; ?></a></li>
+<?php
+}
+else
+{
+?>
+<li><a class="color3" href="login.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGIN']; ?></a></li>
+<?php
+}
+?>	
 				<div class="clearfix"> </div>
 			</ul>
 			</div>
@@ -139,27 +191,66 @@ else
 	        </div>
 	    </div>
    </div>
-   <div class="account-in">
-   	 <div class="container">
-   	   <h3>Account</h3>
-		<div class="col-md-7 account-top">
-		  <form action="checklogin.php" method="POST" >
-			<div> 	
-				<span>Username*</span>
-				<input type="text" name="username" required="required"> 
-			</div>
-			<div> 
-				<span class="pass">Password*</span>
-				<input type="password" name="password" required="required">
-			</div>				
-				<input type="submit" value="Login"> 
-		   </form>
-		</div>
-		<div class="col-md-5 left-account ">
-			<a href="register.php" class="create">Create an account</a>
-		</div>
-	  </div>
-   </div>
+<?php
+if(isset($_SESSION["user"])){
+?>	
+				<h1>&nbsp;Hello&nbsp;<?php if($_SESSION['user']){ echo $_SESSION['user'];} ?></h1>
+				<button href="checkout.php?action=empty" onclick="myFunction()">Place Order</button>
+
+<script>
+function myFunction() {
+    alert("You placed the order");
+}
+</script>
+				<tr><p> <a href="checkout.php?action=empty" class="simpleCart_empty">Empty Cart</a></p></tr>
+<?php
+}
+else
+{
+?>
+			<h1>In order to place the order you have to login first</h1>
+<?php
+}
+?>
+<div id="shopping-cart">
+<div class="txt-heading">Shopping Cart</div>
+<?php
+if(isset($_SESSION["cart_item"])){
+    $item_total = 0;
+?>	
+<table cellpadding="10" cellspacing="1">
+<tbody>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Code</strong></th>
+<th><strong>Quantity</strong></th>
+<th><strong>Price</strong></th>
+<th><strong>Action</strong></th>
+</tr>	
+<?php		
+    foreach ($_SESSION["cart_item"] as $item){
+		?>
+				<tr>
+				<td><strong><?php echo $item["name"]; ?></strong></td>
+				<td><?php echo $item["code"]; ?></td>
+				<td><?php echo $item["quantity"]; ?></td>
+				<td><?php echo "&euro;".$item["price"]; ?></td>
+				<td><a href="checkout.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction">Remove Item</a></td>
+				</tr>
+				<?php
+        $item_total += ($item["price"]*$item["quantity"]);
+		}
+		?>
+
+<tr>
+<td colspan="5" align=right><strong>Total:</strong> <?php echo "&euro;".$item_total; ?></td>
+</tr>
+</tbody>
+</table>		
+  <?php
+}
+?>
+</div>
    <div class="footer">
    	 <div class="container">
 	    <div class="clearfix"></div>
@@ -169,4 +260,5 @@ else
    	</div>
    </div>
 </body>
-</html>		
+</html>
+	

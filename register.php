@@ -21,18 +21,66 @@ include_once 'common.php';
 	<div class="banner">
    	  <div class="container">
    	  	<div class="header_top">
+			<div class="header_top_left">
+	  	      <div class="box_11"><a href="checkout.php">
+		      			  <?php
+if(isset($_SESSION["cart_item"])){
+    $item_total = 0;
+	$items = 0;
+?>	
+			  <?php		
+    foreach ($_SESSION["cart_item"] as $item){
+		?>
+				<?php
+        $item_total += ($item["price"]*$item["quantity"]);
+		$items += $item["quantity"];
+		}
+		?>
+		      <h4><p>Cart: <?php echo "&euro;".$item_total; ?> (<?php echo $items; ?> items )</p><img src="images/bag.png" alt=""/><div class="clearfix"> </div></h4>
+			    <?php
+}
+?>
+		      </a></div>
+	          <p class="empty"><a href="checkout.php?action=empty" class="simpleCart_empty">Empty Cart</a></p>
+	          <div class="clearfix"> </div>
+	       </div>
            <div class="header_top_right">
+			 <div class="lang_list">
+				<select tabindex="4" class="dropdown">
+					<option value="" class="label" value="">&euro; Euro</option>
+				</select>
+			 </div>
+<?php
+if(isset($_SESSION["user"])){
+?>	
 			 <ul class="header_user_info">
-			  <a class="login" href="login.php">
+			  <a class="login">
 				<i class="user"> </i> 
-				<li class="user_desc"><?php echo $lang['ACCOUNT']; ?></li>
+				<span style="text-transform: uppercase"><?php if($_SESSION['user']){ echo $_SESSION['user'];} ?></span>
+				<li><a href="logout.php">&nbsp;LogOut</a></li>
 			  </a>
 		     </ul>
+<?php
+}
+else
+{
+?>
+			<ul class="header_user_info">
+			  <a class="login" href="login.php">
+				<i class="user"> </i> 
+				<li class="user_desc"><?php echo "My Account" ?></li>
+			  </a>
+		     </ul>
+<?php
+}
+?>
 			  <div id="languages">
 					<a href="index.php?lang=en"><img src="images/en.png" /></a>
 					<a href="index.php?lang=ro"><img src="images/ro.png" /></a>
 			  </div>
 			 </div>
+			 <script src="js/classie1.js"></script>
+		            <div class="clearfix"> </div>
 		     <div class="clearfix"> </div>
 	  </div>
 	  <div class="header_bottom">
@@ -43,14 +91,14 @@ include_once 'common.php';
 	     <ul class="megamenu skyblue">
 			<li><a href="index.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_HOME']; ?></a>
 			</li>
-			<li><a class="color4" href="register.php"><?php echo $lang['MENU_PRODUCTS']; ?></a>
+			<li><a class="color4" href="#"><?php echo $lang['MENU_PRODUCTS']; ?></a>
 				<div class="megapanel">
 					<div class="row">
 						<div class="col1">
 							<div class="h_nav">
 								<h4><?php echo $lang['MEN']; ?></h4>
 								<ul>
-									<li><a href="men.php"><?php echo $lang['MEN_WATCHES']; ?></a></li>
+									<li><a href="men.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -58,7 +106,7 @@ include_once 'common.php';
 							<div class="h_nav">
 								<h4><?php echo $lang['WOMEN']; ?></h4>
 								<ul>
-									<li><a href="men.php"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
+									<li><a href="women.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['WOMEN_WATCHES']; ?></a></li>
 								</ul>	
 							</div>							
 						</div>
@@ -83,7 +131,19 @@ include_once 'common.php';
 					</div>
 				</li>				
 				<li><a class="color10" href="contact.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['MENU_CONTACT_US']; ?></a></li>
-				<li><a class="color3" href="login.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGIN']; ?></a></li>
+<?php
+if(isset($_SESSION["user"])){
+?>	
+<li><a class="color3" href="logout.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGOUT']; ?></a></li>
+<?php
+}
+else
+{
+?>
+<li><a class="color3" href="login.php?lang=<?php echo $lang['LANG']; ?>"><?php echo $lang['LOGIN']; ?></a></li>
+<?php
+}
+?>	
 				<div class="clearfix"> </div>
 			</ul>
 			</div>
@@ -122,7 +182,6 @@ include_once 'common.php';
 		<div class="clearfix"> </div>
 		<div class="register-but">
 		   <form>
-			   <input type="submit" value="submit">
 			   <div class="clearfix"> </div>
 		   </form>
 		</div>

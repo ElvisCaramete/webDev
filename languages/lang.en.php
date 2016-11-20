@@ -7,8 +7,6 @@ Language: English
 
 $lang = array();
 
-
-
 $lang['PAGE_TITLE'] = 'Watches';
 $lang['REGISTER_PAGE'] = 'Registration Page';
 $lang['LOGIN_PAGE'] = 'Login Page';
@@ -31,6 +29,7 @@ $lang['WOMEN_WATCHES'] = 'Women Watches';
 $lang['TRENDS'] = 'Trends';
 $lang['PRICE'] = 'Price';
 $lang['LOGIN'] = 'Login';
+$lang['LOGOUT'] = 'Logout';
 $lang['REGISTER'] = 'Registration';
 
 //HOME
@@ -38,7 +37,11 @@ $lang['REGISTER'] = 'Registration';
 $lang['DESCRIPTION'] = 'Best watches on the market';
 $lang['SHOP'] = 'Shop now!';
 $lang['WELCOME'] = 'WELCOME';
-$lang['DESC'] = 'Watches.com a aprovizionat clientiilor a combination of price, selection and service for over 20 years. Our goal has been to earn the trust and satisfaction of the customer. We offer competitive pricing, but we also knew low prices alone could not make our business superior. We are determined to combine honest and helpful dealings with outstanding service before, during, and after the sale.';
+$lang['DESC'] = 'Watches
+
+Is it Time for Something New?
+Watches are more than utilitarian timekeepers. A great watch makes a fashion statement, adding the finishing touch to any outfit. If you’re ready to refine your look with a new, used or vintage timepiece, eBay has many ways to find the best watch for you. Or move into the world of wearable technology with a smartwatch.
+';
 
 //CONTACT
 
@@ -50,4 +53,7 @@ $lang['CONTACT_DESC'] = 'Contact description';
 $lang['LANG'] = 'en';
 $lang['BACK_BUTTON'] = 'Go back';
 
+//Shop
+
+$lang['CATEGORIES'] = 'Categories';
 ?>

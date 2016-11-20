@@ -29,6 +29,7 @@ $lang['WOMEN_WATCHES'] = 'Ceasuri de femei';
 $lang['TRENDS'] = 'Trendinte';
 $lang['PRICE'] = 'Pret';
 $lang['LOGIN'] = 'Logare';
+$lang['LOGOUT'] = 'Logout';
 $lang['REGISTER'] = 'Inregistrare';
 
 //HOME
@@ -36,7 +37,7 @@ $lang['REGISTER'] = 'Inregistrare';
 $lang['DESCRIPTION'] = 'Cele mai bune preturi de pe piata';
 $lang['SHOP'] = 'Cumpara acum!';
 $lang['WELCOME'] = 'BINE ATI VENIT';
-$lang['DESC'] = 'Traducere';
+$lang['DESC'] = 'Magazinul Watches atrage prin eleganta prezentarii colectiilor de ceasuri si bijuterii, fiind o usoara cale de acces catre brandurile internationale ce suprind prin noutate, stil si diversitate. Aici se regasesc modele clasice de design orologer ce masoara timpul cu mecanisme automatice sau quartz (Certina, Doxa, Seiko, Timex si altele), bijuterii sculptate in aur sau argint si setate cu diamante, perle sau alte pietre pretioase (Fossil, Cacharel, Esprit, Majorica si altele). ';
 
 //CONTACT
 
@@ -47,4 +48,8 @@ $lang['CONTACT_DESC'] = 'Descriere contact';
 
 $lang['LANG'] = 'ro';
 $lang['BACK_BUTTON'] = 'Inapoi';
+
+//Shop
+
+$lang['CATEGORIES'] = 'Categorii';
 ?>
