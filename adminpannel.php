@@ -308,7 +308,7 @@ $conn->close();
 		   <h2>Remove Watch</h2>
 			 <div>
 				<span>ID<label>*</label></span>
-				<input type="text" name="id" required="required"> 
+				<input type="text" name="idrw" required="required"> 
 			 </div>
 			 <div></div>
 			 </div>
@@ -333,26 +333,12 @@ $conn->close();
 </body>
 </html>
 <?php
-    define("DB_HOST", "localhost");
-    define("DB_USERNAME", "root");
-    define("DB_PASSWORD", "");
-    define("DB_DATABASE", "webdev_db");
-
-    $db = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-
-
-
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-	$id = mysqli_real_escape_string($db,$_POST['id']);
-	if(id!=0){
-		$bool=true;
-	}else
+	$id = mysqli_real_escape_string($db,$_POST['idrw']);
+	if(id==NULL){
 		$bool=false;
+	}else
+		$bool=true;
 	$name = mysqli_real_escape_string($db,$_POST['name']);
 	$code = mysqli_real_escape_string($db,$_POST['code']);
 	$image = mysqli_real_escape_string($db,$_POST['image']);
@@ -362,14 +348,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($bool==false) // checks if bool is true
 		{
 			mysqli_query($db, "DELETE FROM tblproduct WHERE id='$id';"); //Inserts the value to table users
-			Print '<script>alert("Successfully removed watch");</script>'; // Prompts the user
-			Print '<script>window.location.assign("AdminPannel.php");</script>'; // redirects to register.php
+			Print '<script>alert("Successfully removed watch!");</script>'; // Prompts the user
+			Print '<script>window.location.assign("adminpannel.php");</script>'; // redirects to register.php
 		}
 		if($bool==true) // checks if bool is true
 		{
 			mysqli_query($db, "INSERT INTO tblproduct (name, code, image, price, sex) VALUES ('$name','$code','$image','$price','$sex')"); //Inserts the value to table users
 			Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
-			Print '<script>window.location.assign("AdminPannel.php");</script>'; // redirects to register.php
+			Print '<script>window.location.assign("adminpannel.php");</script>'; // redirects to register.php
 		}
 	}
 
