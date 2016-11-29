@@ -97,7 +97,8 @@ if(isset($_SESSION["user"])){
 			  <a class="login">
 				<i class="user"> </i> 
 				<span style="text-transform: uppercase"><?php if($_SESSION['user']){ echo $_SESSION['user'];} ?></span>
-				<li><a href="logout.php">&nbsp;LogOut</a></li>
+				<a href="adminpannel.php?lang=<?php echo $lang['LANG']; ?>"><?php if($_SESSION['user']=="admin"){ echo "AdminPannel";} ?></a>
+				<ul><a href="logout.php">&nbsp;LogOut</a></ul>
 			  </a>
 		     </ul>
 <?php
@@ -192,23 +193,25 @@ else
 	    </div>
    </div>
 <?php
-if(isset($_SESSION["user"])){
+if(isset($_SESSION["user"]) && $_SESSION['user']!="admin"){
 ?>	
 				<h1>&nbsp;Hello&nbsp;<?php if($_SESSION['user']){ echo $_SESSION['user'];} ?></h1>
-				<button href="checkout.php?action=empty" onclick="myFunction()">Place Order</button>
-
-<script>
-function myFunction() {
-    alert("You placed the order");
-}
-</script>
+				<button onclick="location.href = 'adminpannel.php?order=placeOrder';">Place Order</button>
 				<tr><p> <a href="checkout.php?action=empty" class="simpleCart_empty">Empty Cart</a></p></tr>
+<?php
+}
+else if(isset($_SESSION["user"]) && $_SESSION['user']=="admin"){
+?>
+	<h1>Hello&nbsp;<?php if($_SESSION['user']){ echo $_SESSION['user'];} ?></h1>
+	<button onclick="location.href = 'adminpannel.php?order=placeOrder';">Place Order</button>
+	<h1><a href="adminpannel.php?lang=<?php echo $lang['LANG']; ?>">You can visit admin pannel</a></h1>
 <?php
 }
 else
 {
 ?>
-			<h1>In order to place the order you have to login first</h1>
+
+	<h1>In order to place the order you have to login first</h1>
 <?php
 }
 ?>

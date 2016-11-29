@@ -57,7 +57,8 @@ if(isset($_SESSION["user"])){
 			  <a class="login">
 				<i class="user"> </i> 
 				<span style="text-transform: uppercase"><?php if($_SESSION['user']){ echo $_SESSION['user'];} ?></span>
-				<li><a href="logout.php">&nbsp;LogOut</a></li>
+				<a href="adminpannel.php?lang=<?php echo $lang['LANG']; ?>"><?php if($_SESSION['user']=="admin"){ echo "AdminPannel";} ?></a>
+				<ul><a href="logout.php">&nbsp;LogOut</a></ul>
 			  </a>
 		     </ul>
 <?php
